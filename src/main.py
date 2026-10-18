@@ -13,7 +13,7 @@ while True:
         while True:
             prioridade = input("Qual a prioridade? (Alta, Média ou Baixa) \n").strip()
             if prioridade not in ["Alta", "Média", "Media", "Baixa"]:
-                print("Prioridade inválida, digite Alta, Média ou Baixa")
+                print("Prioridade inválida, digite Alta, Média ou Baixa.")
             else:
                 break
         descricao = input("Descrição da tarefa: ").strip()
@@ -28,9 +28,18 @@ while True:
         tarefas.append(tarefa)
         print("Tarefa cadastrada com sucesso!")
     elif opcao == "2":
-        print(tarefas)
+        if len(tarefas) == 0:
+            print("Não há nada aqui. Tente adicionar uma tarefa!")
+        else:
+            for tarefa in tarefas:
+                print(f"  Título:      {tarefa['titulo']}")
+                print(f"  Descrição:   {tarefa['descricao']}")
+                print(f"  Prioridade:  {tarefa['prioridade']}")
+                print(f"  Data limite: {tarefa['data_limite']}")
+                print(f"  Status:      {tarefa['status']}")
+                print("-" * 30)
     elif opcao == "3":
         print("Até logo!")
         break
     else:
-        print("Opção inválida, tente de novo")
+        print("Opção inválida, tente de novo.")
