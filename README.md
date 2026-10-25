@@ -36,3 +36,27 @@ python src/main.py
 ```
 
 3. Use o menu para cadastrar tarefas, visualizá-las ou sair.
+
+## Executando com Docker
+
+Para rodar com Docker, é preciso ter o Docker Desktop instalado e aberto.
+
+Como construir a imagem:
+
+```
+docker build -t tasktracker .
+```
+
+Como rodar o container em modo isolado:
+
+```
+docker run -it tasktracker
+```
+
+Como rodar via orquestração (Recomendado):
+
+```
+docker compose run tasktracker-app
+```
+
+O `docker-compose.yml` mantém a entrada do teclado aberta (`stdin_open`) e liga um terminal virtual (`tty`), o que permite usar o menu da aplicação dentro do container.
